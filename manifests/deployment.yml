@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: superstandyautoscaler 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: superstandyautoscaler
+  template:
+    metadata:
+      labels:
+        app: superstandyautoscaler 
+    spec:
+      containers:
+        - name: superstandyautoscaler 
+          image: acrstandy.azurecr.io/superstandyautoscaler
+          ports:
+          - containerPort: 80
